@@ -1,0 +1,28 @@
+---
+title: "fishmanders"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| include=FALSE
+library(tidyverse)
+library(here)
+library(janitor)
+
+
+
+
+
+```
+
+
+
+
+
+
+
+
+
