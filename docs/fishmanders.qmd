@@ -11,14 +11,41 @@ editor_options:
 library(tidyverse)
 library(here)
 library(janitor)
+library(dplyr)
 
+mack_verts <- read_csv(here::here("data", "AS00601.csv"))
 
+janitor::clean_names(mack_verts)
 
+mc_wt_5 <- mack_verts$WEIGHT[5]
+mc_wt_8_20 <- mack_verts$LENGTH1[8:20]
+mc_dates <- mack_verts$SAMPLEDATE
+
+mc_salamanders <- filter(mack_verts, SPECIES == "DITE")
+  
+
+```
+
+```{r}
+
+ggplot(mc_salamanders, aes(x=LENGTH1, y=WEIGHT)) + geom_point(color="orange") + labs(title = "Salamanders", x="Snout Vent Length", y="Weight")
 
 
 ```
 
+```{r}
 
+mc_trout <- filter(mack_verts, SPECIES == "ONCL")
+mc_trout
+
+ggplot(mc_trout, aes(x=WEIGHT, y=LENGTH1, color=REACH)) + 
+  geom_point() + 
+  labs(title="Uncle Trout", x="Weight", y="Length") +
+  facet_wrap("REACH")
+
+
+
+```
 
 
 
